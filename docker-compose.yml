@@ -1,0 +1,10 @@
+services:
+  react-app:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app                 # তোমার পিসির ফাইল ডকারের সাথে সিঙ্ক হবে
+      - /app/node_modules       # নোড মডিউল যেন ডকার নিজেরটা ব্যবহার করে
+    ports:
+      - "5173:5173"            # Vite এর ডিফল্ট পোর্ট
+    command: sh -c "npm install && npm run dev -- --host"
